@@ -1,0 +1,45 @@
+.sidebar {
+  padding: 10px;
+  flex: 0.15;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar__profile {
+  justify-items: center;
+  gap: 10px;
+}
+.sidebar__container {
+  justify-items: center;
+  background-color: 	#070707;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar__channels {
+  flex-grow: 1;
+  height: 50vh;
+  padding-top: 20px;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+.sidebar__channels::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.sidebar__channel {
+  text-align: center;
+  align-content: center;
+  background-color: 	#070707;
+  border: 1px solid rgba(0, 220, 236, 0.548);
+  color: yellow;
+  border-radius: 10px;
+  margin: 10px;
+  height: 40px;
+}
+.sidebar__username{
+  color: rgb(0, 221, 236);
+}

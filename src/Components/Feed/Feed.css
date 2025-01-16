@@ -1,0 +1,32 @@
+.feed {
+  padding: 10px;
+  flex: 0.85;
+  height: 98vh;
+  overflow: hidden;
+  padding-top: 0px;
+  min-width: 700px;
+  display: Grid;
+  /* border: 1px solid #ff00ff; */
+  justify-content: center;
+}
+
+.feed_container{
+  display: Grid;
+  align-items: center;
+  width: 1200px;
+  background: linear-gradient(#000000, #000000, #010101, #080808);
+  padding: 0px 50px;
+  border-radius: 5px;
+  height: 92vh;
+}
+
+.feed_post::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+.feed_post{
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 10px;
+  height: 690px
+}
