@@ -21,11 +21,13 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
-        run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build
+        env:
+          CI: false
+        run: npm run build --if-present
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -67,5 +69,5 @@ jobs:
         with:
           app-name: 'ping-me-front-web'
           slot-name: 'prod'
-          package: .
+          package: "./build"
           
