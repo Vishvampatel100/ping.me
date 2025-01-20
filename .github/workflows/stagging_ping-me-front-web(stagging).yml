@@ -76,5 +76,5 @@ jobs:
         with:
           app-name: 'ping-me-front-web'
           slot-name: 'stagging'
-          package: "./build"
+          package: .
           
