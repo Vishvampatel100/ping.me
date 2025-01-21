@@ -21,20 +21,11 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
-      - name: Build
-        env:
-          CI: false
-          REACT_APP_FIREBASE_API_KEY: ${{ secrets.REACT_APP_FIREBASE_API_KEY }}
-          REACT_APP_FIREBASE_AUTH_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_AUTH_DOMAIN }}
-          REACT_APP_FIREBASE_PROJECT_ID: ${{ secrets.REACT_APP_FIREBASE_PROJECT_ID }}
-          REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
-          REACT_APP_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.REACT_APP_FIREBASE_MESSAGING_SENDER_ID }}
-          REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
-          
-        run: npm run build --if-present
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
 
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
@@ -66,9 +57,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_E3348B7F1C2040C8AE7440433F81C218 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B1B147F164BE41FD983D83C387C9D22E }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_EC61EBDB109347EAA9704E28F133A9A3 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_27C928B75E8842DC9D7FF465497C626D }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1E3A7F75157147CBA6543D72872F8781 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_202356153A044A3EB9FDCE4D92E1C861 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
