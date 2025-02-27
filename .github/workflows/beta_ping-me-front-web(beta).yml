@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - ping-me-front-web
 on:
   push:
     branches:
-      - main
+      - beta
   workflow_dispatch:
 
 jobs:
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'prod'
+      name: 'beta'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
@@ -66,15 +66,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_27C928B75E8842DC9D7FF465497C626D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1E3A7F75157147CBA6543D72872F8781 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_202356153A044A3EB9FDCE4D92E1C861 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_3775A176ADCF43F1A6E9DBB608AFA57B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_423FCD5E9A4D4717B9358CDC569CF90F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A7C65994BA7A42AC8F3B61C91BF888FA }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'ping-me-front-web'
-          slot-name: 'prod'
+          slot-name: 'beta'
           package: .
           
