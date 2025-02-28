@@ -1,44 +1,82 @@
 .newPost {
   background-color: transparent;
   padding: 10px;
-  padding-bottom: 20px;
-  border-radius: 10px;
+  border-radius: 50px;
   /* box-shadow: 0px 0px 20px 10px #000000; */
   overflow: hidden;
   align-self: last baseline;
-  border-top: 1px solid rgba(0, 220, 236, 0.342);
-  /* border: 1px solid #ff00ff; */
+  /* border: 3px solid rgba(0, 220, 236, 0.856); */
+  box-shadow:  0 10px 20px -1px rgb(81, 164, 241), 0 3px 3px -1px rgb(112, 102, 247);
+  max-height: max-content;
+  width: inherit;
+}
+.newPost_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
+}
+.newPost__firstpage{
+  display: flex;
+  flex-grow: 1;
+  align-items: end;
+
 }
 
-.newPost textarea {
-  Width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: transparent;
-  color: white;
-  font-size: large;
+.newPost__title{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px;
+  flex-grow: 1;
+  display: flex;
 }
-.newPost textarea:focus {
+.newPost__title input{
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px;
+  flex-grow: 1;
   outline: none;
 }
-.newPost input[type="file"] {
-  margin-bottom: 10px;
-  color: rgb(0, 221, 236);
+.newPost__next{
+  color: #fff;
+  margin: 10px;
+  align-content: center;
+}
+.newPost__next img{
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
 }
 
-.newPost button {
-  /* background-color: #ff00ff; */
-  color: rgb(0, 221, 236);
-  background-color: transparent;
-  font-size: large;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+.newPost__content{
+  flex-grow: 1;
   align-items: center;
-  margin-right: 10px;
-  font-family: cursive;
-  letter-spacing: 2px;
+  justify-content: center;
+  display: flex;
+}
+.newPost__content textarea{
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
+  outline: none;
+}
+.newPost__send{
+  position: relative;
+  margin: 10px;
+}
+.newPost__attach{
+  position: relative;
+  margin: 10px;
 }

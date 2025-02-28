@@ -5,7 +5,7 @@ import {Link, useNavigate } from 'react-router-dom';
 import { signInWithPopup } from "firebase/auth";
 import { auth, googleProvider, facebookProvider, microsoftProvider } from "./Firebase";
 import assets from '../../assets/Assets.js';
-
+import apiRequest from './api/api';
 
 function Login() {
     const emailref = useRef()
@@ -22,7 +22,10 @@ function Login() {
         try{
             setError('')
             setLoading(true)
-            await login(emailref.current.value, passwordref.current.value)
+            await login(emailref.current.value, passwordref.current.value).then(async (data) => {
+                const idToken = data.user.getIdToken()
+                
+            })
             navigate('/')
         }
         catch {
@@ -35,10 +38,15 @@ function Login() {
     async function handleGoogleLogin() {
         setValue('')
         try {
-            await signInWithPopup(auth, googleProvider).then((data) => {
+            await signInWithPopup(auth, googleProvider).then(async (data) => {
                 setValue(data.user.email)
-                console.log(data)
-                localStorage.setItem('email', data.user.email)
+                const idToken = data.user.getIdToken()
+                const body = { idToken: await idToken }
+                try {
+                    const response = await apiRequest('/login', 'POST', body)
+                } catch (error) {
+                    console.log(error)
+                }
             })
             navigate('/')
         } catch {

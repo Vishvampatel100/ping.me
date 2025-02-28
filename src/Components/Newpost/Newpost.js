@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import '../Newpost/Newpost.css';
-
-function NewPost({ addPost }) {
+import Assets from '../../assets/Assets';
+function NewPost({ addPost, channelId }) {
+    const [title, setTitle] = useState('');
     const [message, setMessage] = useState('');
     const [attachment, setAttachment] = useState(null);
+    const [next, setNext] = useState(false);    
 
     const handlePost = () => {
         const newPost = {
-            username: 'User',
-            profilePicture: 'path/to/profile/picture.jpg',
-            message,
-            attachment,
+            channelId: channelId,
+            title: title,
+            content: message,
+            attachment: attachment,
+            tags: ['super', 'supreme', 'OoooHo'],
         };
         addPost(newPost);
         setMessage('');
         setAttachment(null);
+        setNext(false);
     };
 
     const handleAttachment = (e) => {
@@ -23,13 +27,39 @@ function NewPost({ addPost }) {
 
     return (
         <div className="newPost">
-            <button onClick={handlePost}>Send-it</button>
-            <input type="file" onChange={handleAttachment} />
-            <textarea
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Tiger> What's on your mind?"
-            />
+            <div className="newPost_container">
+                {next ? (
+                    <>
+                        <div className="newPost__firstpage">
+                            <div className="newPost__attach">
+                            <img src={Assets.attachIcon} type="file" onChange={handleAttachment} />
+                            </div>
+                            <div className="newPost__content">
+                                {/* <textarea value={message} onChange={(e) => setMessage(e.target.value)} placeholder="What's on your mind?" /> */}
+
+                                <textarea onChange={(e) => setMessage(e.target.value)} placeholder="Type your message here..."
+                                rows="1" style={{ height: 'auto', overflow: 'hidden' }} 
+                                onInput={(e) => { e.target.style.height = 'auto'; e.target.style.height = `${e.target.scrollHeight}px`;}}/>
+                                    
+                            </div>
+                            <div className="newPost__send">
+                                <img src={Assets.sendIcon} onClick={handlePost} alt="send"/>
+                            </div>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className="newPost__firstpage">
+                            <div className="newPost__title">
+                                <input type="text" onChange={(e) => setTitle(e.target.value)}  placeholder="Article Heading" required/>
+                            </div>
+                            <div className="newPost__next">
+                                <img src={Assets.nextIcon} alt="next" onClick={() => setNext(true)}/>
+                            </div>
+                        </div>
+                    </>
+                )}
+            </div>
         </div>
     );
 }

@@ -27,9 +27,9 @@ export default function Updateprofile(){
         }
 
         Promise.all(promises).then(() => {
-            setMessage('Profile Updated Successfully')
+            setMessage('Password Changed Successfully')
         }).catch(() => {
-            setError('Failed to update account')
+            setError('Failed to Change Password')
         }).finally(() => {
             setLoading(false)
         })
@@ -38,7 +38,7 @@ export default function Updateprofile(){
 return (
     <div className="container">
         <div className="form-wrapper">
-            <h2 className="form-title">Update Profile</h2>
+            <h2 className="form-title">Change Password</h2>
             {error && <div className="error-message">{error}</div>}
             {message && <div className="success-message">{message}</div>}
             <form onSubmit={handleSubmit}>

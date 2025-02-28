@@ -3,59 +3,43 @@
   display: flex;
   flex-direction: row;
   padding: 10px; 
-  height: 50px;
+  height: 30px;
   /* background: rgb(255, 0, 191); */
-  background-color: #000000;
+  background: linear-gradient(90deg, rgba(81, 124, 241, 1) 0%, rgba(0, 142, 236, 1) 40%, rgba(81, 164, 241, 1) 60%, rgba(81, 124, 241, 1) 100%);
   justify-content: center;
 }
 .headerLeft {
   position: relative;
   flex: 0.47;
-  justify-items: right;
+  justify-items: left;
+  display: flex;
+  align-content: center;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 .headerCenter {
   position: relative;
-  width: 100px;
-  height: 100px;
   display: flex;
   align-content: center;
   box-sizing: border-box;
   cursor: pointer;
   justify-content: center;
-  flex:0.06;
+  flex:0.47;
 }
 .headerRight{
   position: relative;
-  flex: 0.47;
-  justify-items: left;
+  flex: 0.;
   display: flex;
-  justify-content: space-between;
+  justify-items: right;
+}
 
-}
-.appLogo{
-  position: relative;
-  object-fit: cover;
-}
-.titleName{
-  position: relative;
-  align-content: center;
-  font-weight: bold;
-  color: yellow;
-  font-family: cursive;
-  font-size: xx-large;
-  text-shadow: 2px 2px 3px rgb(0, 221, 236);
-}
-.titleStatement{
-  position: relative;
-  align-content: center;
-  font-weight: bold;
-  color: yellow;
-  font-family: cursive;
-  font-size: xx-large;
-  text-shadow: 2px 2px 3px rgb(0, 221, 236);
-}
+
 .profileIcon{
-  scale: 40%;
+  position: relative;
+  justify-content: right;
+  right: -40px;
+  top: -20px;
+  scale: 0.4;
 }
 .dropContainer{
   position: absolute;
