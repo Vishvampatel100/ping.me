@@ -23,8 +23,14 @@ function Login() {
             setError('')
             setLoading(true)
             await login(emailref.current.value, passwordref.current.value).then(async (data) => {
-                const idToken = data.user.getIdToken()
-                
+                setValue(data.user.email)
+                const idToken = await data.user.getIdToken()
+                const body = { }
+                try {
+                    const response = await apiRequest('/login', 'POST', body, idToken)
+                } catch (error) {
+                    console.log(error)
+                }
             })
             navigate('/')
         }
@@ -72,10 +78,16 @@ function Login() {
     async function handleMicrosoftLogin() {
         setValue('')
         try {
-            await signInWithPopup(auth, microsoftProvider).then((data) => {
+            await signInWithPopup(auth, microsoftProvider).then(async (data) => {
                 setValue(data.user.email)
-                console.log(data)
-                localStorage.setItem('email', data.user.email)
+                setValue(data.user.email)
+                const idToken = await data.user.getIdToken()
+                const body = { }
+                try {
+                    const response = await apiRequest('/login', 'POST', body, idToken)
+                } catch (error) {
+                    console.log(error)
+                }
             })
             navigate('/')
         } catch {
