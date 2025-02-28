@@ -82,7 +82,7 @@ function Login() {
                 setValue(data.user.email)
                 setValue(data.user.email)
                 const idToken = await data.user.getIdToken()
-                const body = { }
+                const body = {}
                 try {
                     const response = await apiRequest('/login', 'POST', body, idToken)
                 } catch (error) {
