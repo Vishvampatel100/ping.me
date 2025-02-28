@@ -1,5 +1,6 @@
 async function apiRequest(endpoint, method, body, token) {
     try {
+        console.log('Token:',  token);
         const response = await fetch(process.env.REACT_APP_API_BASE_URL + endpoint, {
             method: method,
             headers: {

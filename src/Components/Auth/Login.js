@@ -40,10 +40,10 @@ function Login() {
         try {
             await signInWithPopup(auth, googleProvider).then(async (data) => {
                 setValue(data.user.email)
-                const idToken = data.user.getIdToken()
-                const body = { idToken: await idToken }
+                const idToken = await data.user.getIdToken()
+                const body = { }
                 try {
-                    const response = await apiRequest('/login', 'POST', body)
+                    const response = await apiRequest('/login', 'POST', body, idToken)
                 } catch (error) {
                     console.log(error)
                 }
