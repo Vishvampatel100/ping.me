@@ -10,12 +10,30 @@
 }
 .headerLeft {
   position: relative;
-  flex: 0.47;
+  flex: 0.2;
   justify-items: left;
   display: flex;
   align-content: center;
   box-sizing: border-box;
   cursor: pointer;
+  color: rgb(0, 0, 0);
+  align-items: center;
+}
+.headerCenter p{
+  font-size: 25px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+.headerCenterIcon{
+  position: relative;
+  justify-content: center;
+  width: 30px;
+  top: 5px;
+  right: 20px;
+}
+.headerCenter img{
+  position: relative;
+  scale: 0.35;
 }
 .headerCenter {
   position: relative;
@@ -24,11 +42,12 @@
   box-sizing: border-box;
   cursor: pointer;
   justify-content: center;
-  flex:0.47;
+  align-items: center;
+  flex-grow: 1;
 }
 .headerRight{
   position: relative;
-  flex: 0.;
+  flex: 0.2;
   display: flex;
   justify-items: right;
 }

@@ -8,6 +8,11 @@ function NewPost({ addPost, channelId }) {
     const [next, setNext] = useState(false);    
 
     const handlePost = () => {
+        while (!message) {
+            window.alert('Please enter a message');
+            return;
+        }
+
         const newPost = {
             channelId: channelId,
             title: title,
@@ -17,6 +22,7 @@ function NewPost({ addPost, channelId }) {
         };
         addPost(newPost);
         setMessage('');
+        setTitle('');
         setAttachment(null);
         setNext(false);
     };
@@ -24,6 +30,14 @@ function NewPost({ addPost, channelId }) {
     const handleAttachment = (e) => {
         setAttachment(URL.createObjectURL(e.target.files[0]));
     };
+
+    const handleNext = () => {
+        while (!title) {
+            window.alert('Please enter a Heading');
+            return;
+        }
+        setNext(true);
+    }
 
     return (
         <div className="newPost">
@@ -54,7 +68,7 @@ function NewPost({ addPost, channelId }) {
                                 <input type="text" onChange={(e) => setTitle(e.target.value)}  placeholder="Article Heading" required/>
                             </div>
                             <div className="newPost__next">
-                                <img src={Assets.nextIcon} alt="next" onClick={() => setNext(true)}/>
+                                <img src={Assets.nextIcon} alt="next" onClick={handleNext}/>
                             </div>
                         </div>
                     </>

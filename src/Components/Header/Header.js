@@ -48,6 +48,11 @@ function Header() {
 		</div>
 		
 		<div className='headerCenter'>
+			<p>ping</p>
+			<div className='headerCenterIcon'>
+				<img src={assets.messageIcon}/> 
+			</div>
+			<p>me</p>
 		</div>
 		
 		<div className="headerRight">

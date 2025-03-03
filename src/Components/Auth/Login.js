@@ -100,18 +100,12 @@ function Login() {
     }, [])
     return (
         <div className="container">
+        <div className="form-wrapper">
             <div className="loginheader">
-                <div className="loginheaderLeft">
-                    <h1 className='titleStatement'>Tiger is live</h1>
-                </div>
                 <div className='loginheaderCenter'>
                     <img src={assets.appLogo} alt="Logo" className='loginappLogo' />
                 </div>
-                <div className="loginheaderRight">
-                    <h1 className='titleName'>ping.me !</h1>
-                </div>
             </div>
-        <div className="form-wrapper">
             <h2 className="formtitle">Exited Go Live!</h2>
             {error && <div className="error-message">{error}</div>}
             <div className="social-login">

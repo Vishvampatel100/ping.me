@@ -9,6 +9,7 @@ import closeIcon from './close.png';
 import profileIcon from './profile.png';
 import homeIcon from './home.png';
 import logoutIcon from './logout.png';
+import messageIcon from './message.png';
 import tiger from './tiger.jpeg';
 
 function Assets() {
@@ -26,5 +27,6 @@ export default Assets ={
     profileIcon,
     homeIcon,
     logoutIcon,
+    messageIcon,
     tiger
 };
