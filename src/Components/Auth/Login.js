@@ -100,10 +100,17 @@ function Login() {
     }, [])
     return (
         <div className="container">
-        <div className="form-wrapper">
+        <div className="formwrapper">
             <div className="loginheader">
                 <div className='loginheaderCenter'>
-                    <img src={assets.appLogo} alt="Logo" className='loginappLogo' />
+                    {/* <img src={assets.appLogo} alt="Logo" className='loginappLogo' /> */}
+                    <div className='headerCenter'>
+                        <p>ping</p>
+                        <div className='headerCenterIcon'>
+                            <img src={assets.messageIcon}/> 
+                        </div>
+                        <p>me</p>
+                    </div>
                 </div>
             </div>
             <h2 className="formtitle">Exited Go Live!</h2>
@@ -132,10 +139,10 @@ function Login() {
                 </button>
                 </form>
                 <div className="loginredirect">
-                <Link to="/forgetpassword" className='link'>Forget Password?</Link>
+                <Link to="/forgetpassword" className="loginLink" >Forget Password?</Link>
                 </div>
                 <div className="loginredirect">
-                need an account? <Link to="/signup" className='link'>Sign Up</Link>
+                need an account? <Link to="/signup" className="loginLink" >Sign Up</Link>
                 </div>
             </div>
         </div>
