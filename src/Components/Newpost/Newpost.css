@@ -59,6 +59,8 @@
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-direction: column;
+
 }
 .newPost__content textarea{
   background-color: transparent;
@@ -70,6 +72,7 @@
   flex-grow: 1;
   height: 100%;
   width: 100%;
+  min-height: 100px;
   outline: none;
 }
 .newPost__send{
@@ -79,4 +82,31 @@
 .newPost__attach{
   position: relative;
   margin: 10px;
+}
+.newPost__attachmentPreview{
+  color: #e5a8f5;
+  display: flex;
+  align-items: center;
+}
+/* Add this to your existing CSS file */
+.removeAttachmentButton {
+  background: none;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  margin-left: 10px;
+  color: #ffffff;
+}
+
+.uploadProgress {
+  width: 100%;
+  background-color: #f3f3f3;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+.progressBar {
+  height: 5px;
+  background-color: #4caf50;
+  border-radius: 2px;
 }
