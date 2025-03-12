@@ -13,7 +13,7 @@ function Post({ post }) {
 			const response = await fetch(process.env.REACT_APP_API_BASE_URL+"/attachments/download/"+ fileName, {
 				method: "GET",
 				headers: {
-				  'Authorization': idToken ? 'Bearer ' + idToken : undefined,
+				  'authorization': idToken ? 'Bearer ' + idToken : undefined,
 				  'api-key': process.env.REACT_APP_API_KEY
 				}
 			  });

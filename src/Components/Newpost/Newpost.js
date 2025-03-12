@@ -60,7 +60,7 @@ function NewPost({ addPost, channelId }) {
             const response = await fetch(process.env.REACT_APP_API_BASE_URL + "/attachments/upload", {
                 method: "POST",
                 headers: {
-                    'Authorization': idToken ? 'Bearer ' + idToken : undefined,
+                    'authorization': idToken ? 'Bearer ' + idToken : undefined,
                     'api-key': process.env.REACT_APP_API_KEY
                 },
                 body: formData,
