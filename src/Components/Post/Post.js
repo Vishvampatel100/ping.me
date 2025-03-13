@@ -10,10 +10,11 @@ function Post({ post }) {
 		const handleDownload = async (fileName) => {
 			try {
 			const idToken = await currentUser.getIdToken();
+			console.log("Downloading file:", idToken);	
 			const response = await fetch(process.env.REACT_APP_API_BASE_URL+"/attachments/download/"+ fileName, {
 				method: "GET",
 				headers: {
-				  'authorization': idToken ? 'Bearer ' + idToken : undefined,
+				  'authorization': 'Bearer ' + idToken,
 				  'api-key': process.env.REACT_APP_API_KEY
 				}
 			  });
@@ -29,6 +30,9 @@ function Post({ post }) {
 		  };
 		if (post?.attachment){
 			handleDownload(post.attachment);
+		}
+		else {
+			setFileUrl(null);
 		}
 	}, [post])
 	
